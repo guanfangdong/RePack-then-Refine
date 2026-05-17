@@ -1,6 +1,6 @@
 # ⚡ RePack then Refine
 
-**Official implementation of the ICML 2026 paper _"RePack then Refine: Efficient Diffusion Transformers with Vision Foundation Models"_.**
+**Official implementation of the ICML 2026 paper _"RePack then Refine"_.**
 A highly efficient DiT framework achieving **1.65 FID on ImageNet-1K in only
 64 epochs** by leveraging compressed Vision Foundation Model (VFM) features and
 latent-guided refinement.
@@ -9,7 +9,7 @@ latent-guided refinement.
 
 | Paper | Code | Checkpoint | Status |
 |:--|:--|:--|:--|
-| [arXiv](https://arxiv.org/abs/2512.12083) | [`public_release/stage1`](public_release/stage1) | [Google Drive](https://drive.google.com/file/d/1oDd1SRUjp8-7ncyI0Tc2HSirL06Vf1f-/view?usp=drive_link) | 🚧 Not camera-ready yet |
+| [arXiv](https://arxiv.org/abs/2512.12083) | [`stage1`](stage1) | [Google Drive](https://drive.google.com/file/d/1oDd1SRUjp8-7ncyI0Tc2HSirL06Vf1f-/view?usp=drive_link) | 🚧 Not camera-ready yet |
 
 ## ✨ Highlights
 
@@ -40,9 +40,9 @@ and high-frequency details that may be weakened by compression.
 
 | Item | Path / Link | Notes |
 |:--|:--|:--|
-| Paper draft | [`public_release/4234_RePack_then_Refine_Effici.pdf`](public_release/4234_RePack_then_Refine_Effici.pdf) | Draft version included in this workspace. |
-| Stage 1 code | [`public_release/stage1`](public_release/stage1) | Training, reconstruction, and latent visualization. |
-| Stage 1 README | [`public_release/stage1/README.md`](public_release/stage1/README.md) | Start here for usage instructions. |
+| Paper draft | [`4234_RePack_then_Refine_Effici.pdf`](4234_RePack_then_Refine_Effici.pdf) | Draft version included in the release. |
+| Stage 1 code | [`stage1`](stage1) | Training, reconstruction, and latent visualization. |
+| Stage 1 README | [`stage1/README.md`](stage1/README.md) | Start here for usage instructions. |
 | Stage 1 checkpoint | [Google Drive](https://drive.google.com/file/d/1oDd1SRUjp8-7ncyI0Tc2HSirL06Vf1f-/view?usp=drive_link) | `repack-dinov3b-s16-ch32.ckpt` |
 
 The checkpoint will also be mirrored on Hugging Face later. For now, we provide
@@ -50,30 +50,32 @@ the Google Drive link first so users can download it quickly.
 
 ## 🗂️ Repository Layout
 
-Only the cleaned public-release code lives under `public_release/`. Other
-folders in this workspace are research/development files and are not part of
-the clean release path.
+The uploaded repository is organized directly by stages. Stage 1 is available
+now; Stage 2 and Stage 3 will be added as they are cleaned for release.
 
 | Directory / File | Purpose |
 |:--|:--|
-| `public_release/4234_RePack_then_Refine_Effici.pdf` | Paper draft. |
-| `public_release/stage1/configs/` | Stage 1 YAML configs. |
-| `public_release/stage1/repack/` | Clean `repack.*` implementation for representation packing. |
-| `public_release/stage1/scripts/` | Shell helpers for training, reconstruction, and visualization. |
-| `public_release/stage1/taming/` | Minimal bundled modules needed for LPIPS/GAN training. |
-| `public_release/stage1/train_stage1.py` | Stage 1 training entry point. |
-| `public_release/stage1/reconstruct_stage1.py` | Reconstruction script for evaluating a Stage 1 checkpoint. |
-| `public_release/stage1/visualize_stage1_latents.py` | Latent PCA visualization script. |
+| `4234_RePack_then_Refine_Effici.pdf` | Paper draft. |
+| `stage1/` | Representation packing code, configs, scripts, and checkpoint usage. |
+| `stage1/configs/` | Stage 1 YAML configs. |
+| `stage1/repack/` | Clean `repack.*` implementation for representation packing. |
+| `stage1/scripts/` | Shell helpers for training, reconstruction, and visualization. |
+| `stage1/taming/` | Minimal bundled modules needed for LPIPS/GAN training. |
+| `stage1/train_stage1.py` | Stage 1 training entry point. |
+| `stage1/reconstruct_stage1.py` | Reconstruction script for evaluating a Stage 1 checkpoint. |
+| `stage1/visualize_stage1_latents.py` | Latent PCA visualization script. |
+| `stage2/` | Generative modeling code. Coming soon. |
+| `stage3/` | Latent-guided refinement code. Coming soon. |
 
 ## 🚀 Quick Start
 
 | Task | Command |
 |:--|:--|
-| Enter Stage 1 folder | `cd public_release/stage1` |
+| Enter Stage 1 folder | `cd stage1` |
 | Install dependencies | `pip install -r requirements.txt` |
 | Train Stage 1 | `bash scripts/train_stage1.sh configs/stage1_repack_dinov3b_f16d32_ffl_watson.yaml` |
-| Reconstruct images | See [`public_release/stage1/README.md`](public_release/stage1/README.md#reconstruct). |
-| Visualize latents | See [`public_release/stage1/README.md`](public_release/stage1/README.md#visualize-latents). |
+| Reconstruct images | See [`stage1/README.md`](stage1/README.md#reconstruct). |
+| Visualize latents | See [`stage1/README.md`](stage1/README.md#visualize-latents). |
 
 ## 📦 Stage 1 Checkpoint
 
