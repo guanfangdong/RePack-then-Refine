@@ -1,6 +1,6 @@
 # ⚡ RePack then Refine
 
-**Official implementation of the ICML 2026 paper _"RePack then Refine"_.**
+**Official implementation of the ICML 2026 paper _"RePack then Refine: Efficient Diffusion Transformers with Vision Foundation Models"_.**
 A highly efficient DiT framework achieving **1.65 FID on ImageNet-1K in only
 64 epochs** by leveraging compressed Vision Foundation Model (VFM) features and
 latent-guided refinement.
