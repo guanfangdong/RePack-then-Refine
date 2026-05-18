@@ -1,0 +1,7 @@
+lpips
+omegaconf
+pillow
+pytorch-lightning
+torch
+torchvision
+tqdm

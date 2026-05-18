@@ -1,0 +1,30 @@
+model:
+  params:
+    z_dim: 32
+    base_channels: 128
+    gan_weight: 0.5
+    lpips_weight: 1.0
+    lr: 1.0e-4
+
+data:
+  params:
+    data_root: ./offline_refiner_data
+    batch_size: 8
+    num_workers: 16
+
+trainer:
+  devices: 8
+  strategy: ddp_find_unused_parameters_true
+  max_epochs: 100
+  precision: 32
+  log_every_n_steps: 50
+
+logging:
+  logdir: logs_refiner
+  name: repack_refiner_offline
+
+checkpoint:
+  dirpath: logs_refiner/checkpoints
+  filename: "{epoch:03d}-{step:08d}"
+  save_top_k: -1
+  every_n_train_steps: 5000
