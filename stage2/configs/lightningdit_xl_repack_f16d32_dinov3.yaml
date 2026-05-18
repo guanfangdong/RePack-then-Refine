@@ -1,0 +1,59 @@
+data:
+  data_path: ./imagenet_features/repack_f16d32_dinov3/train_256
+  fid_reference_file: /path/to/VIRTUAL_imagenet256_labeled.npz
+  image_size: 256
+  num_classes: 1000
+  num_workers: 8
+  latent_norm: true
+  latent_multiplier: 1.0
+
+repack:
+  config_path: configs/repack_f16d32_dinov3.yaml
+  downsample_ratio: 16
+  latent_channels: 32
+
+model:
+  model_type: LightningDiT-XL/1
+  use_qknorm: false
+  use_swiglu: true
+  use_rope: true
+  use_rmsnorm: true
+  wo_shift: false
+  in_chans: 32
+
+train:
+  max_steps: 240000
+  global_batch_size: 256
+  global_seed: 0
+  output_dir: output
+  exp_name: lightningdit_xl1_repack_f16d32_dinov3
+  resume: true
+  log_every: 5
+  ckpt_every: 20000
+
+optimizer:
+  lr: 0.0002
+  beta2: 0.95
+
+transport:
+  path_type: Linear
+  prediction: velocity
+  loss_weight: null
+  sample_eps: null
+  train_eps: null
+  use_cosine_loss: true
+  use_lognorm: true
+
+sample:
+  mode: ODE
+  sampling_method: euler
+  atol: 0.000001
+  rtol: 0.001
+  reverse: false
+  likelihood: false
+  num_sampling_steps: 250
+  cfg_scale: 15.0
+  per_proc_batch_size: 100
+  fid_num: 50000
+  cfg_interval_start: 0.11
+  timestep_shift: 0.3

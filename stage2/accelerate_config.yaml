@@ -1,0 +1,21 @@
+# Single-node multi-GPU training/extraction config.
+compute_environment: LOCAL_MACHINE
+distributed_type: MULTI_GPU
+num_machines: 1
+machine_rank: 0
+num_processes: 4
+gpu_ids: all
+main_process_port: 29505
+
+# Precision and device settings.
+mixed_precision: "no"
+use_cpu: false
+downcast_bf16: "no"
+
+# Keep the default launcher simple and explicit.
+dynamo_backend: "no"
+fsdp_config: {}
+megatron_lm_config: {}
+tpu_use_cluster: false
+tpu_use_sudo: false
+rdzv_backend: static
