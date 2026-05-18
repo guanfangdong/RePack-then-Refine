@@ -1,4 +1,4 @@
-# ⚡ RePack then Refine: Efficient Diffusion Transformers with Vision Foundation Models
+# 🧩 RePack then Refine: Efficient Diffusion Transformers with Vision Foundation Models
 
 **Official implementation of the ICML 2026 paper _"RePack then Refine: Efficient Diffusion Transformers with Vision Foundation Models"_.**
 A highly efficient DiT framework achieving **1.65 FID on ImageNet-1K in only
@@ -19,7 +19,7 @@ latent-guided refinement.
 |:--|:--|
 | 🧠 VFM latents | Uses semantic-rich DINOv3-B/16 patch features as the representation source. |
 | 📦 RePack compression | Projects high-dimensional VFM features into a compact **f16d32** latent space. |
-| ⚡ Efficient DiT training | Trains diffusion in the packed latent space for much faster convergence. |
+| 🚀 Efficient DiT training | Trains diffusion in the packed latent space for much faster convergence. |
 | 🎨 Latent-guided refinement | Restores high-frequency details from the decoded image and packed latent guidance. |
 | 🏁 Strong ImageNet result | Achieves **1.65 FID** on ImageNet-1K with the Refiner after only **64 epochs**. |
 
@@ -59,33 +59,45 @@ the Google Drive link first so users can download it quickly.
 
 ## 🗂️ Repository Layout
 
-The uploaded repository is organized directly by stages. Stage 1, Stage 2, and
-Stage 3 are available in the current release.
+The uploaded repository is organized directly by stages. Each stage has its own
+README, configs, scripts, and entry points.
 
-| Directory / File | Purpose |
-|:--|:--|
-| `4234_RePack_then_Refine_Effici.pdf` | Paper draft. |
-| `stage1/` | Representation packing code, configs, scripts, and checkpoint usage. |
-| `stage1/configs/` | Stage 1 YAML configs. |
-| `stage1/repack/` | Clean `repack.*` implementation for representation packing. |
-| `stage1/scripts/` | Shell helpers for training, reconstruction, and visualization. |
-| `stage1/taming/` | Minimal bundled modules needed for LPIPS/GAN training. |
-| `stage1/train_stage1.py` | Stage 1 training entry point. |
-| `stage1/reconstruct_stage1.py` | Reconstruction script for evaluating a Stage 1 checkpoint. |
-| `stage1/visualize_stage1_latents.py` | Latent PCA visualization script. |
-| `stage2/` | Generative modeling code for RePack-DiT. |
-| `stage2/configs/` | Stage 2 RePack tokenizer and DiT YAML configs. |
-| `stage2/scripts/` | Shell helpers for feature extraction, training, batch inference, and FID. |
-| `stage2/tokenizer/` | Lightweight RePack tokenizer wrapper that reuses Stage 1 modules. |
-| `stage2/train.py` | Stage 2 DiT training entry point. |
-| `stage2/extract_features.py` | ImageNet RePack latent caching script. |
-| `stage2/inference_batch.py` | Batch sampling script that saves both images and generated latents. |
-| `stage3/` | Latent-guided refinement code. |
-| `stage3/configs/` | Offline Refiner training YAML config. |
-| `stage3/scripts/` | Shell helpers for offline data preparation, training, refinement, and FID. |
-| `stage3/prepare_offline_data.py` | Builds Refiner training triplets from ImageNet and Stage-1 RePack. |
-| `stage3/train_refiner.py` | Offline Refiner training entry point. |
-| `stage3/refine_batch.py` | Batch refinement for Stage-2 generated images and latents. |
+```text
+.
+|-- README.md
+|-- 4234_RePack_then_Refine_Effici.pdf
+|
+|-- stage1/                         # Representation Packing
+|   |-- README.md
+|   |-- configs/                    # Stage-1 RePack YAML configs
+|   |-- scripts/                    # train / reconstruct / visualize helpers
+|   |-- repack/                     # clean repack.* implementation
+|   |-- taming/                     # minimal LPIPS/GAN support files
+|   |-- train_stage1.py
+|   |-- reconstruct_stage1.py
+|   `-- visualize_stage1_latents.py
+|
+|-- stage2/                         # Generative Modeling
+|   |-- README.md
+|   |-- configs/                    # RePack tokenizer + RePack-DiT configs
+|   |-- scripts/                    # feature extraction / train / inference / FID
+|   |-- tokenizer/                  # lightweight wrapper reusing stage1/repack
+|   |-- models/                     # LightningDiT backbone
+|   |-- transport/                  # flow-matching transport
+|   |-- tools/                      # FID utilities
+|   |-- extract_features.py
+|   |-- train.py
+|   `-- inference_batch.py          # saves both PNG images and generated latents
+|
+`-- stage3/                         # Latent-Guided Refinement
+    |-- README.md
+    |-- configs/                    # offline Refiner training config
+    |-- scripts/                    # prepare data / train / refine / FID
+    |-- prepare_offline_data.py     # builds gt / rec / latent triplets
+    |-- train_refiner.py
+    |-- refine_batch.py             # refines Stage-2 PNGs using Stage-2 latents
+    `-- eval_fid.py                 # reuses stage2/tools/calculate_fid.py
+```
 
 ## 🚀 Quick Start
 
@@ -111,7 +123,7 @@ Stage 3 are available in the current release.
 |:--|:--|:--|:--|
 | `repack-dinov3b-s16-ch32.ckpt` | DINOv3-B/16 | f16d32 | [Google Drive](https://drive.google.com/file/d/1oDd1SRUjp8-7ncyI0Tc2HSirL06Vf1f-/view?usp=drive_link) |
 
-## ⚡ Stage 2 Checkpoint and Samples
+## 📦 Stage 2 Checkpoint and Samples
 
 | Name | Notes | Download |
 |:--|:--|:--|
