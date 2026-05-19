@@ -1,4 +1,4 @@
-# 🧩 RePack then Refine: Efficient Diffusion Transformers with Vision Foundation Models
+# 🚀 RePack then Refine: Efficient Diffusion Transformers with Vision Foundation Models
 
 **Official implementation of the ICML 2026 paper _"RePack then Refine: Efficient Diffusion Transformers with Vision Foundation Models"_.**
 A highly efficient DiT framework achieving **1.65 FID on ImageNet-1K in only
@@ -138,6 +138,16 @@ slower than the 50-step preview setting.
 | Name | Notes | Download |
 |:--|:--|:--|
 | `repack_refiner.ckpt` | Latent-Guided Refiner trained offline on RePack reconstruction triplets. | [Google Drive](https://drive.google.com/file/d/1--eR0xFgJ9ivUMdb4xO4SzrzjGhzV3OD/view?usp=sharing) |
+
+## 📏 Evaluation Reference
+
+We follow the ImageNet evaluation protocol used by
+[openai/guided-diffusion](https://github.com/openai/guided-diffusion). The
+FID reference file `VIRTUAL_imagenet256_labeled.npz` can be downloaded from
+[Google Drive](https://drive.google.com/file/d/1Cgsqv2tdjGygZN4bhJCXsLOe-Ad7z6Mh/view?usp=sharing).
+
+Use this file as `data.fid_reference_file` in Stage 2 configs, or pass it as
+`--ref_npz` when running Stage 2 / Stage 3 FID scripts.
 
 ## 🚧 Note
 

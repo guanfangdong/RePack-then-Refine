@@ -139,3 +139,8 @@ bash scripts/run_fid.sh \
 ```
 
 The same FID implementation is used by `inference_batch.py`.
+
+We follow the ImageNet evaluation protocol used by
+[openai/guided-diffusion](https://github.com/openai/guided-diffusion). The
+FID reference file `VIRTUAL_imagenet256_labeled.npz` can be downloaded from
+[Google Drive](https://drive.google.com/file/d/1Cgsqv2tdjGygZN4bhJCXsLOe-Ad7z6Mh/view?usp=sharing).

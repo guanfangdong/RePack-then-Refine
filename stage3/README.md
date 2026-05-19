@@ -63,6 +63,11 @@ For the provided 50-step sample set, we measured:
 
 The best reported FID of `1.65` is obtained with 250-step inference before refinement, which is slower than the 50-step preview setting.
 
+We follow the ImageNet evaluation protocol used by
+[openai/guided-diffusion](https://github.com/openai/guided-diffusion). The
+FID reference file `VIRTUAL_imagenet256_labeled.npz` can be downloaded from
+[Google Drive](https://drive.google.com/file/d/1Cgsqv2tdjGygZN4bhJCXsLOe-Ad7z6Mh/view?usp=sharing).
+
 ## Offline Training
 
 Prepare ImageNet and set the Stage-1 checkpoint path in:
