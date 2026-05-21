@@ -57,6 +57,23 @@ and high-frequency details that may be weakened by compression.
 The checkpoint will also be mirrored on Hugging Face later. For now, we provide
 the Google Drive link first so users can download it quickly.
 
+## 🌍 Multilingual Paper Translations
+
+To help knowledge travel across language barriers, we made an experimental
+effort to translate the paper into multiple languages. Click below to download:
+
+- [(Chinese, 中文)](https://drive.google.com/file/d/12h0uMBcw1sAGdPr-VbKUNAlUeemPq2f0/view?usp=drive_link)
+- [(French, Français)](https://drive.google.com/file/d/1V36oTRPOoVKciLFK3DwYahrLXK0OGx0R/view?usp=drive_link)
+- [(German, Deutsch)](https://drive.google.com/file/d/1Yej1sqQIsg8eJO7WsQCeuHgCxz9DiOXj/view?usp=drive_link)
+- [(Italian, Italiano)](https://drive.google.com/file/d/1XlQFGS482c7EZb5VdZ8Lt0Fa5HaQARHb/view?usp=drive_link)
+- [(Japanese, 日本語)](https://drive.google.com/file/d/1wTLh9VjvwMcm54MDghocB4n7q0Hj2_v3/view?usp=drive_link)
+- [(Korean, 한국어)](https://drive.google.com/file/d/1P6aF8h6Rz4LOWxc2XbUtnul-WiWoJYrD/view?usp=drive_link)
+- [(Persian, فارسی)](https://drive.google.com/file/d/10n7GjPySdaUAM-s2SA-9rzWF9wxP7D6P/view?usp=drive_link)
+- [(Portuguese, Português)](https://drive.google.com/file/d/1EqZLK7iCpbf3KPqvd1PFt6Kk0aGShQWC/view?usp=drive_link)
+- [(Spanish, Español)](https://drive.google.com/file/d/1XJ4-3-wz_u0C40YDA7xL0lvB4CHY7y_5/view?usp=drive_link)
+
+If you would like to see the paper in your language, please open an issue!
+
 ## 🗂️ Repository Layout
 
 The uploaded repository is organized directly by stages. Each stage has its own
